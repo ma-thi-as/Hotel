@@ -8,9 +8,22 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body>
-    <h2>Hotelosky</h2>
-    {% block content %}{% endblock content %}
+<body class="bg-gray-100">
+
+    {% block header %}
+        {% include 'components/nav.html' %}
+    {% endblock header %}
+
+    {% block content %}
+     {% include 'components/content.html' %}
+     {% include 'components/contact.html' %}
+    {% endblock content %}
+
+    {% block footer %}
+        {% include 'components/footer.html' %} 
+    {% endblock footer %}
+
+
 </body>
 
 </html>

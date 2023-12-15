@@ -1,0 +1,28 @@
+{% if user.is_authenticated %}
+<!-- Navbar para usuarios  autenticados -->
+<nav class="bg-gray-800 p-4">
+    <div class="container mx-auto flex justify-between items-center">
+        <div class="text-white">¡Hola, {{ user.first_name }} {{user.last_name}}!</div>
+        <ul class="flex space-x-4">
+            <li><a href="{% url 'users:index' %}" class="text-white">Home</a></li>
+            <li><a href="{% url 'users:links' %}" class="text-white">My Links</a></li>
+
+            <li><a href="{% url 'users:logout' %}" class="text-white">logout</a></li>
+        </ul>
+    </div>
+</nav>
+
+{% else %}
+<!-- Navbar para usuarios no autenticados -->
+  <nav class="bg-gray-800 p-4">
+    <div class="container mx-auto flex justify-between items-center">
+      <div class="text-white">¡Bienvenido!</div>
+      <ul class="flex space-x-4">
+        <li><a href="{% url 'users:index' %}" class="text-white">Home</a></li>
+        <li><a href="{% url 'users:login' %}" class="text-white">Login</a></li>
+        <li><a href="{% url 'users:register' %}" class="text-white">Register</a></li>
+
+      </ul>
+    </div>
+
+{% endif %}

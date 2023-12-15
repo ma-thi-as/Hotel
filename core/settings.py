@@ -33,7 +33,10 @@ BASE_APPS = [
 ]
 MY_APPS = [
     'apps.users',
-    'apps.persons'
+    'apps.persons',
+    'apps.payments',
+    'apps.reservations',
+    'apps.rooms'
 ]
 THIRDS_APPS = []
 

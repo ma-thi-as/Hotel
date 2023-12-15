@@ -1,0 +1,62 @@
+
+{% extends 'index.html' %}
+
+{% block content %}
+  <div class="container mx-auto my-8">
+    <h1 class="text-2xl font-bold mb-4">Agregar/Editar Habitación</h1>
+    <form method="post" class="max-w-md mx-auto bg-white p-6 rounded shadow-md">
+      {% csrf_token %}
+
+      <div class="mb-4">
+        <label for="room_number" class="block text-gray-700 text-sm font-bold mb-2">Número de Habitación:</label>
+        <input type="number" id="room_number" name="room_number"
+          class="appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
+          required>
+      </div>
+
+      <div class="mb-4">
+        <label for="floor" class="block text-gray-700 text-sm font-bold mb-2">Piso:</label>
+        <input type="number" id="floor" name="floor"
+          class="appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
+          required>
+      </div>
+
+      <div class="mb-4">
+        <label for="night_price" class="block text-gray-700 text-sm font-bold mb-2">Precio Nocturno:</label>
+        <input type="number" id="night_price" name="night_price"
+          class="appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
+          required>
+      </div>
+
+      <div class="mb-4">
+        <label for="description" class="block text-gray-700 text-sm font-bold mb-2">Descripción:</label>
+        <textarea id="description" name="description"
+          class="appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
+          required></textarea>
+      </div>
+
+      <div class="mb-4">
+        <label for="state" class="block text-gray-700 text-sm font-bold mb-2">Estado:</label>
+    
+          <select name="state" class="appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
+          required>
+            {% for choice in form.fields.state.choices %}
+              <option value="{{ choice.0 }}" {% if form.instance.state == choice.0 %}selected{% endif %}>{{ choice.1 }}</option>
+            {% endfor %}
+        </select>
+      </div>
+
+      <div class="mb-4">
+        <label for="room_type" class="block text-gray-700 text-sm font-bold mb-2">Tipo de Habitación:</label>
+        <select name="room_type"  class="appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
+        required>
+          {% for room in form.room_type %}
+          <option value="{{ room.id }}" {% if form.instance.state == room.id %}selected{% endif %}>{{ room }}</option>
+          {% endfor %}
+        </select>
+      </div>
+
+      <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded mt-4">Guardar cambios</button>
+    </form>
+  </div>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'index.html' %}
+
+{% block content %}
+  <div class="container mx-auto my-8">
+    <h2 class="text-2xl font-bold mb-4">Confirmar Eliminación</h2>
+
+    <p>¿Estás seguro de que deseas eliminar la reservación "{{ object }}"?</p>
+    
+    <form method="post" action="{% url 'reservations:check_delete' object.pk %}">
+      {% csrf_token %}
+      <button type="submit" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Eliminar</button>
+      <a href="{% url 'reservations:list' %}" class="ml-2 text-blue-500 hover:underline">Cancelar</a>
+    </form>
+  </div>
+{% endblock %}

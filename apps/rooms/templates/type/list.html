@@ -1,0 +1,11 @@
+{% extends 'index.html' %}
+
+{% block content %}
+  <h2 class="text-2xl font-bold mb-4">Room Types</h2>
+  <ul>
+    {% for room_type in object_list %}
+      <li><a href="{% url 'rooms:type_detail' room_type.pk %}" class="text-blue-500 hover:underline">{{ room_type.type_name }}</a></li>
+    {% endfor %}
+  </ul>
+  <a href="{% url 'rooms:type_create' %}" class="block text-blue-500 mt-4">Create Room Type</a>
+{% endblock %}

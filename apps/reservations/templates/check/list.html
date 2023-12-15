@@ -1,0 +1,13 @@
+{% extends 'index.html' %}
+
+{% block content %}
+  <div class="container mx-auto my-8">
+    <h2 class="text-2xl font-bold mb-4">Lista de Check In/Out</h2>
+
+    <ul>
+      {% for check_in_out in object_list %}
+        <li><a href="{% url 'reservations:check_detail' check_in_out.pk %}">{{ check_in_out }}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'index.html' %}
+
+{% block content %}
+  <div class="container mx-auto my-8">
+    <h2 class="text-2xl font-bold mb-4">Detalles de la Reservación</h2>
+
+    <p>{{ object }}</p>
+  
+
+
+  <a href="{% url 'reservations:update' object.pk %}" class="block text-blue-500 mt-4">Update</a>
+  <a href="{% url 'reservations:delete' object.pk %}" class="block text-red-500 mt-2">Delete</a>
+  <a href="{% url 'reservations:list' %}" class="block text-blue-500 mt-4">Back to list</a>
+  </div>
+{% endblock %}

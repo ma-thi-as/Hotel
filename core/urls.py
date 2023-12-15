@@ -19,5 +19,11 @@ from django.urls import path, include
 from apps.users.views import CustomLoginView
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("", include(('apps.users.urls', 'users')))
+    path("", include(('apps.users.urls', 'users'))),
+    path("persons/", include(('apps.persons.urls', 'persons'))),
+    path("rooms/", include(('apps.rooms.urls', 'rooms'))),
+    path("reservations/", include(('apps.reservations.urls', 'reservations'))),
+    path("payments/", include(('apps.payments.urls', 'payments'))),
+
+
 ]

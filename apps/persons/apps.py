@@ -7,7 +7,7 @@ class PersonsConfig(AppConfig):
 
     def ready(self):
         from apps.users.models import User
-        from .receivers import crear_usario_employee, save_usuario_employee
+        from .receivers import crear_user_bassedOnAttrs, save_user_bassedOnAttrs
 
-        post_save.connect(crear_usario_employee, sender= User)
-        post_save.connect(save_usuario_employee, sender= User)
+        post_save.connect(crear_user_bassedOnAttrs, sender= User)
+        post_save.connect(save_user_bassedOnAttrs, sender= User)

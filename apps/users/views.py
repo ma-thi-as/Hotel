@@ -1,11 +1,17 @@
 from django.urls import reverse_lazy
-from django.contrib.auth.views import LoginView, LogoutView
+from django.contrib.auth.views import LoginView
+from django.contrib.auth import logout
 from django.shortcuts import render
 from django.contrib import messages
 from django.views.generic import CreateView, TemplateView
 from .models import User
 from .forms import CustomUserRegister
+from django.shortcuts import redirect
 # Create your views here.
+
+def Customlogout(request):
+    logout(request)
+    return redirect('users:index')
 
 class CustomLoginView(LoginView):
     template_name = "login.html"
@@ -25,6 +31,8 @@ class CustomLoginView(LoginView):
 class IndexView(TemplateView):
     template_name = "index.html"
 
+class UrlHandlerView(TemplateView):
+    template_name = "url.html"
 
 class UserCreateView(CreateView):
     model = User

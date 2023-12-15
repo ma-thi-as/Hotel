@@ -1,0 +1,26 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<div class="container mx-auto mt-8 flex justify-center items-center h-screen">
+    <div class="bg-white p-8 rounded shadow-md">
+        <h2 class="text-2xl font-bold mb-4">Menú de Redirecciones</h2>
+        <ul class="space-y-4">
+            <li><a href="{% url 'users:index' %}" class="block text-blue-500 hover:underline">Home</a></li>
+            <li><a href="{% url 'users:logout' %}" class="block text-blue-500 hover:underline">Logout</a></li>
+            <li><a href="{% url 'reservations:create' %}" class="block text-blue-500 hover:underline">Crear reservación</a></li>
+            <li><a href="{% url 'reservations:list' %}" class="block text-blue-500 hover:underline">Listar reservación</a></li>
+
+            {% if user.is_staff %}
+                <li><a href="{% url 'rooms:create' %}" class="block text-blue-500 hover:underline">Crear habitación</a></li>
+                <li><a href="{% url 'rooms:list' %}" class="block text-blue-500 hover:underline">Listar habitación</a></li>
+                <li><a href="{% url 'rooms:type_create' %}" class="block text-blue-500 hover:underline">Crear tipo habitación</a></li>
+                <li><a href="{% url 'rooms:type_list' %}" class="block text-blue-500 hover:underline">Listar tipo habitación</a></li>
+                <li><a href="{% url 'payments:create' %}" class="block text-blue-500 hover:underline">Crear pago</a></li>
+                <li><a href="{% url 'payments:list' %}" class="block text-blue-500 hover:underline">Listar pago</a></li>
+                <li><a href="{% url 'persons:emp_list' %}" class="block text-blue-500 hover:underline">Listar empleados</a></li>
+                <li><a href="{% url 'persons:guest_list' %}" class="block text-blue-500 hover:underline">Listar huéspedes</a></li>
+            {% endif %}
+        </ul>
+    </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,14 @@
+
+{% extends 'index.html' %}
+
+{% block content %}
+{{form.fields.room_types}}
+  <div class="container mx-auto my-8">
+    <h1 class="text-2xl font-bold mb-4">Agregar/Editar Habitación</h1>
+    <form method="post" class="max-w-md mx-auto bg-white p-6 rounded shadow-md">
+      {% csrf_token %}
+      {{form.as_p}}
+      <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded mt-4">Guardar cambios</button>
+    </form>
+  </div>
+{% endblock %}

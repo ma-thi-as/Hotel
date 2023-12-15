@@ -1,0 +1,11 @@
+{% extends 'index.html' %}
+
+{% block content %}
+  <h2 class="text-2xl font-bold mb-4">Update Room Type</h2>
+  <form method="post" class="max-w-md mx-auto">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Update</button>
+  </form>
+  <a href="{% url 'rooms:type_detail' object.pk %}" class="block text-blue-500 mt-4">Cancel</a>
+{% endblock %}

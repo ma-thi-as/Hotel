@@ -1,0 +1,11 @@
+{% extends 'index.html' %}
+
+{% block content %}
+  <h2 class="text-3xl font-bold mb-4">{{ object }}</h2>
+  <p class="text-gray-600">{{ object.description }}</p>
+  <!-- Agrega más detalles según sea necesario -->
+
+  <a href="{% url 'rooms:update' object.pk %}" class="block text-blue-500 mt-4">Update Room Type</a>
+  <a href="{% url 'rooms:delete' object.pk %}" class="block text-red-500 mt-2">Delete Room Type</a>
+  <a href="{% url 'rooms:list' %}" class="block text-blue-500 mt-4">Back to Room Types</a>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'index.html' %}
+
+{% block content %}
+  <div class="container mx-auto">
+    <h1 class="text-2xl font-bold my-4">{{ object.user.first_name }} {{ object.user.last_name }}</h1>
+    <p>Correo: {{ object.user.email }}</p>
+    <p>Documento: {{ object.user.document }}</p>
+    <p>Numero de telefono: {{object.phone_number}}</p>
+    <p>Direccion: {{object.direction}} </p>
+    
+    <a href="{% url 'persons:guest_update' pk=object.pk %}" class="text-blue-500 hover:underline">Actualizar</a>
+  </div>
+{% endblock %}
